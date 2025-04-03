@@ -6,12 +6,12 @@ import {
   changeOrderStatus,
   cancelOrder
 } from '../controllers/orderController.js';
-import { verifyUser } from '../middleware/auth.js';
+import { authenticate } from '../middleware/auth.js';
 
 const router = express.Router();
 
 // All endpoints below require authentication
-router.use(verifyUser);
+router.use(authenticate);
 
 router.post('/', placeOrder);
 router.get('/:id', getOrder);

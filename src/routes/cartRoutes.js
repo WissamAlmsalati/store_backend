@@ -5,12 +5,12 @@ import {
   deleteCartItem,
   clearCart
 } from '../controllers/cartController.js';
-import { verifyUser } from '../middleware/auth.js';
+import { authenticate } from '../middleware/auth.js';
 
 const router = express.Router();
 
 // All cart endpoints require authentication
-router.use(verifyUser);
+router.use(authenticate);
 
 router.post('/', addItemToCart);
 router.get('/', getCartItems);

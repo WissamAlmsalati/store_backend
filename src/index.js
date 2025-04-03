@@ -5,10 +5,13 @@ import authRoutes from './routes/auth.js';
 import poolPromise from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
+import cartRoutes from './routes/cartRoutes.js';
+import addressesRoutes from './routes/addressRoutes.js';
 
 dotenv.config();
 
-const app = express ();
+const app = express (); 
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
@@ -35,7 +38,9 @@ app.get('/health', async (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
-
+app.use('/api/orders', orderRoutes);
+app.use('/api/cart', cartRoutes);
+app.use('/api/addresses', addressesRoutes);
 
 
 (async () => {

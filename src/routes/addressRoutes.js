@@ -5,11 +5,11 @@ import {
   updateAddressDetails,
   removeAddress
 } from '../controllers/addressController.js';
-import { verifyUser } from '../middleware/auth.js';
+import { authenticate } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.use(verifyUser);
+router.use(authenticate);
 
 router.post('/', createAddress);
 router.get('/', listAddresses);
