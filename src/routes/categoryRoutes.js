@@ -6,7 +6,7 @@ import {
   updateCategoryDetails,
   removeCategory
 } from '../controllers/categoryController.js';
-import { verifyUser, verifyAdmin } from '../middleware/auth.js';
+import { authenticate, verifyAdmin } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -15,7 +15,7 @@ router.get('/', listCategories);
 router.get('/:id', getCategory);
 
 // Admin protected routes
-router.use(verifyUser);
+router.use(authenticate);
 router.use(verifyAdmin);
 router.post('/', addCategory);
 router.put('/:id', updateCategoryDetails);

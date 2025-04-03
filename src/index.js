@@ -4,6 +4,7 @@ import cors from 'cors';
 import authRoutes from './routes/auth.js';
 import poolPromise from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
+import categoryRoutes from './routes/categoryRoutes.js';
 
 dotenv.config();
 
@@ -33,7 +34,7 @@ app.get('/health', async (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
-
+app.use('/api/categories', categoryRoutes);
 
 
 
